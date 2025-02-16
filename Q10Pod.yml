@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+spec:
+  containers:
+    - name: nginx-container-ziad
+      image: nginx:latest
+      volumeMounts:
+        - mountPath: "/etc/nginx/nginx.conf"
+          name: game-demo  
+          subPath: nginx.conf
+  volumes:
+    - name: game-demo
+      configMap:
+        name: game-demo
